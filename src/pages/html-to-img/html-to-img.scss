@@ -1,0 +1,121 @@
+//html-to-img
+.html-to-img {
+  .test-to-img-warp {
+    //position: relative;
+    //left: -1000000px;
+    //z-index: -999999999;
+  }
+  #test-to-img {
+    margin: 0 auto;
+    width: 90%;
+    background-color: #fff;
+    //to-img-bd
+    .to-img-bd {
+      padding: .2rem;
+      //goods-img
+      .goods-img {
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 5px;
+        }
+      }
+      //goods-info
+      .goods-info {
+        padding-top: .12rem;
+        display: flex;
+        .info-l {
+          flex: 1;
+          .goods-tit {
+            font-size: .26rem;
+            //-webkit-box-orient: vertical;
+            overflow: hidden;
+            max-height: .76rem;
+            line-height: .38rem;
+            //text-overflow: ellipsis;
+            //display: -webkit-box;
+            //-webkit-line-clamp: 2;
+            color: #666;
+          }
+          .goods-price {
+            padding-top: .24rem;
+            font-size: .32rem;
+            color: #f78730;
+            .num {
+              font-size: .46rem;
+            }
+          }
+        }
+        .info-r {
+          //width: 2.2rem;
+          margin-left: .24rem;
+          text-align: center;
+          .info-r-img {
+            border: 1px solid #eaeaea;
+            canvas {
+              display: block;
+            }
+            //img{
+            //  width: 100%;
+            //}
+          }
+          .txt {
+            padding-top: .06rem;
+            color: #666666;
+            font-size: .24rem;
+          }
+        }
+      }
+    }
+
+  }
+
+  .com-btn{
+    border: 1px solid #eaeaea;
+    font-size: .26rem;
+    color: #666666;
+    padding: .12rem .24rem;
+    margin: .24rem;
+    display: inline-block;
+    border-radius: 3px;background-color: #fff;
+  }
+  //QRcodeShare-pop-up
+  .QRcodeShare-pop-up-com{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    //display: flex;
+    //justify-content:center;
+    //align-items:center;
+  }
+  .QRcodeShare-pop-up {
+    z-index: 999999999;
+    @extend .QRcodeShare-pop-up-com;
+    .QRcodeShare-pop-up-bg{
+      @extend .QRcodeShare-pop-up-com;
+      background-color: rgba(0, 0, 0, .5);
+    }
+    .pop-up-bd {
+      //position: relative;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width:320px;
+      .QRcodeShare-img{
+        img{
+          width: 100%;
+        }
+      }
+      .QRcodeShare-tip {
+        font-size: .24rem;
+        color: #ffffff;
+      }
+      .down{
+        text-align: center;
+      }
+    }
+  }
+}

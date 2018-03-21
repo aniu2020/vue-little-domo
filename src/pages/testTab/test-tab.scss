@@ -1,0 +1,111 @@
+.test-tab {
+  //area-hd
+  .area-hd {
+    position: fixed;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    width: 100%;
+    background-color: #fff;
+    color: #444444;
+    font-size: .32rem;
+    overflow: scroll;
+    z-index: 999999;
+    border-bottom: 1px solid #F1F5F7;
+    a {
+      display: inline-block;
+      padding: .3rem .6rem;
+      color: #666666;
+    }
+    .cur {
+      color: #ff6a06;
+      position: relative;
+      &:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: .1rem;
+        background-color: #F16E14;
+        border-radius: 15px;
+      }
+    }
+  }
+  .mint-tab-container{
+    margin-top: 1rem;
+  }
+  //area-bd
+  .area-bd{
+    //area-goods
+    .area-goods {
+      background-color: #F1F5F7;
+      .area-goods-inner {
+        margin-left: -.06rem;
+        overflow: hidden;
+        padding-top: .3rem;
+        margin-bottom: 1.2rem;
+      }
+      .actcom-item {
+        float: left;
+        position: relative;
+        width: 50%;
+        border-left: .06rem solid #F1F5F7;
+        border-bottom: .06rem solid #F1F5F7;
+        background-color: #fff;
+        height: 5.35rem;
+        .goods-info {
+          //padding: .1rem;
+        }
+        .goods-info-hd {
+          height: 3.4rem;
+          min-height: 3.4rem;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%
+          }
+        }
+        .goods-info-bd {
+          padding-left: .11rem;
+          .goods-tit {
+            color: #333;
+            font-size: .3rem;
+            line-height: .4rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            font-weight: 400;
+            padding: .12rem .1rem 0;
+            min-height: .8rem;
+          }
+          .goods-price {
+            position: absolute;
+            left: .17rem;
+            bottom: .3rem;
+            .discount-price {
+              color: #f0542b;
+              font-size: .36rem;
+              padding-right: .12rem;
+              display: inline-block;
+            }
+            .original-price {
+              color: #ccc;
+              font-size: .24rem;
+            }
+          }
+        }
+      }
+      .no-more {
+        padding: .12rem 0;
+        text-align: center;
+        color: #999999;
+      }
+    }
+    //goods-more-loading
+    .goods-more-loading{
+      margin:  0 auto;
+    }
+  }
+}

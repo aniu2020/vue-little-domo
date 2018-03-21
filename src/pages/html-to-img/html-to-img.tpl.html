@@ -1,0 +1,40 @@
+<mt-loadmore :top-method="loadTop" @top-status-change="handleTopChange" ref="loadmore" :autoFill="false">
+  <section class="m-cont html-to-img" id="html-to-img">
+    <p><a href="javascript:;" class="com-btn" @click="QRcodeShare">二维码分享弹框</a></p>
+    <div class="test-to-img-warp">
+      <div id="test-to-img">
+        <div class="to-img-bd">
+          <div class="goods-img">
+            <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1943249770,628140654&fm=200&gp=0.jpg"
+                 alt="">
+          </div>
+          <div class="goods-info">
+            <div class="info-l">
+              <p class="goods-tit">专柜正品雅诗兰黛红石榴晚霜小样/鲜活营养晚膜霜15ml 美白保湿 鲜活营养晚膜霜15ml</p>
+              <p class="goods-price">￥<span class="num">100.00</span></p>
+            </div>
+            <div class="info-r">
+              <div class="info-r-img">
+                <qriously value="Hello World!" :size="100" ref="qriously"/>
+              </div>
+              <p class="txt">扫码立即购买</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--QRcodeShare-pop-up二维码弹框-->
+    <div class="QRcodeShare-pop-up" v-show="QRcodeSharePopUpShow">
+      <div class="QRcodeShare-pop-up-bg" @click="QRcodeSharePopUpShow=false">
+      </div>
+      <div class="pop-up-bd">
+        <div class="QRcodeShare-img" id="QRcodeShare-img">
+
+        </div>
+        <p class="QRcodeShare-tip">请长按上面图片保存至手机，然后在微信朋友圈里面分享该二维码图片。</p>
+        <div class="down"><a href="javascript:;" class="com-btn" @click="saveFileClick">下载图片(仅支持pc端)</a></div>
+      </div>
+    </div>
+  </section>
+</mt-loadmore>

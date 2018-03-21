@@ -1,0 +1,80 @@
+//public
+.swiper-container img{
+  width: 100%;
+  display: block;
+}
+//home-page
+.goods-home{
+  .goods-home-swiper {
+    //height: 3.6rem;
+    //max-height: 3.6rem;
+    //overflow: hidden;
+    .swiper-pagination-bullet-active {
+      width: .28rem;
+      border-radius: 30px;
+      background-color: #FF5D6F;
+    }
+    .swiper-slide {
+      a{
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    }
+  }
+}
+
+//detail-page
+.goods-img .swiper-pagination-bullet-active{
+  background: #fff;
+}
+
+//mint-msgbox
+.mint-msgbox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  background-color: #fff;
+  width: 85%;
+  border-radius: 12px;
+  font-size: 16px;
+  -webkit-user-select: none;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: .2s;
+}
+.mint-msgbox-content{
+  padding: 10px 20px 15px;
+  border-bottom: 1px solid #f5f5f5;
+  min-height: 36px;
+  position: relative;
+}
+.mint-msgbox-message {
+  color: #333;
+  margin: 0;
+  text-align: center;
+  line-height: 36px;
+}
+.mint-msgbox-cancel {
+  width: 50%;
+  color: #333;
+}
+.mint-msgbox-confirm {
+  background-color: #E85B03;
+  color: #fff;
+  width: 50%;
+}
+
+//mint-toast
+.mint-toast{
+  z-index: 1000000000;
+}

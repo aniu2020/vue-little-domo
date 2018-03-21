@@ -1,0 +1,22 @@
+@import "../../assets/sass/common/common";
+.fa-right {
+  float: right;
+  font-size: .28rem;
+  color: #fff;
+  margin: 0 .1rem;
+}
+
+.h-right {
+  position: absolute;
+  right: 0.1rem;
+  top: 0;
+}
+
+.subjectTitle {
+  display: inline-block;
+  max-width: 70%;
+  height: .88rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

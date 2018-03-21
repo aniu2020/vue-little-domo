@@ -1,0 +1,62 @@
+<div class="test-tab" v-infinite-scroll="loadmore" infinite-scroll-immediate-check="false"
+     infinite-scroll-disabled="disabled" infinite-scroll-distance="10">
+  <!--area-hd-->
+  <div class="area-hd">
+    <!--class="cur"-->
+
+    <a href="javascript:;" v-for="item in goodsClass" :class="[{'cur':status==item.classId}]"
+       @click="status=item.classId">{{item.className}}</a>
+  </div>
+
+  <div class="area-bd">
+    <mt-loadmore :top-method="loadTop" @top-status-change="handleTopChange" ref="loadmore" :autoFill='false'>
+      <mt-tab-container v-model="status">
+
+        <template v-if="goodsClassMap[status]&&goodsClassMap[status].list&&goodsClassMap[status].list.length>0">
+
+          <mt-tab-container-item v-for="item in goodsClass" :id="item.classId" key="item.classId">
+            <div class="area-goods">
+              <div class="area-goods-inner">
+
+                <a class="actcom-item" :href="items.goodsDetailUrl" v-for="items in goodsClassMap[status].list">
+                  <div class="goods-info">
+                    <div class="goods-info-hd">
+                      <img v-lazy="items.goodPicUrl"
+                           alt="">
+                    </div>
+                    <div class="goods-info-bd">
+                      <h3 class="goods-tit" style="-webkit-box-orient: vertical;">
+                        {{items.goodName}}
+                      </h3>
+                      <p class="goods-price">
+                        <span class="discount-price">￥{{items.goodsCurrentPrice}}</span>
+                        <del class="original-price">￥{{items.goodPrice}}</del>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+
+              </div>
+            </div>
+          </mt-tab-container-item>
+
+        </template>
+
+        <template v-else>
+          <div class="noShow-main" v-show="loaded">
+            <div class="nothing-tips">
+              <img :src="nothing"/>
+              <p>额，你已经进入没有数据的二次元世界</p>
+            </div>
+          </div>
+        </template>
+        <div class="goods-more-loading" v-show="loading">
+          <img :src="imgloading" alt=""/><br/>
+        </div>
+
+      </mt-tab-container>
+    </mt-loadmore>
+  </div>
+
+</div>
+

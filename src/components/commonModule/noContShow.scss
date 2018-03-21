@@ -1,0 +1,30 @@
+.no-cont-show {
+  margin-bottom: 80%;
+  .cont-show-hd {
+    width: 40%;
+    margin: 20% auto 0;
+    img {
+      width: 100%;
+    }
+  }
+  .cont-show-bd {
+    font-size: .32rem;
+    color: #999999;
+    padding-top: .3rem;
+    text-align: center;
+    .show-bd-text {
+      font-size: .32rem;
+    }
+    .no-cont-show-op {
+      margin-top: .3rem;
+      a {
+        border: 1px solid #D8D8D8;
+        display: inline-block;
+        padding: .12rem .15rem;
+        color: #ff690a;
+        border-radius: .06rem;
+        font-size: .32rem;
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@ module.exports = {
     index: path.resolve(__dirname, '../target/index.html'),
     assetsRoot: path.resolve(__dirname, '../target'),//assets（资源）根目录
     assetsSubDirectory: 'static',//ssets（资源）副（Sub）目录
-    assetsPublicPath: '/',
+    assetsPublicPath: '/vuelittledomo/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.

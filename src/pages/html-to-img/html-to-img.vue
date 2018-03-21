@@ -56,6 +56,9 @@
         });
       }, 1000)
 
+
+
+
 //
 //      var pic;
 //      var canvas2 = document.createElement("canvas");

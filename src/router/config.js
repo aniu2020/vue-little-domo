@@ -78,6 +78,11 @@ let config = [
     },
     component: htmltoimg
   },
+  {
+    path: "/vuesyncmodel",
+    component: resolve => require.ensure([], () => resolve(require('@/pages/vue-sync-model/vue-sync-model')), "vuesyncmodel"),
+    name: "",
+  },
 ];
 
 export  default  config

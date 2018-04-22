@@ -1,0 +1,32 @@
+<mt-loadmore :top-method="loadTop" @top-status-change="handleTopChange" ref="loadmore" :autoFill="false">
+  <section class="m-cont vue-sync-model">
+    <!--smallPopupOriginal-->
+    <smallPopupOriginal :popupShow="smallPopupOriginalShow"
+                        @newPopupShow-change="newPopupShowChangeListen">
+    </smallPopupOriginal>
+    <!--smallPopupSync-->
+    <!--1-->
+    <smallPopupSync :popupShow.sync="smallPopupSyncShow"></smallPopupSync>
+    <!--2-->
+    <!--<smallPopupSync :popupShow="smallPopupSyncShow"-->
+                    <!--@update:popupShow="val => smallPopupSyncShow = val"></smallPopupSync>-->
+    <!--1,2等价-->
+
+    <!--3-->
+    <smallPopupVmodel v-model="smallPopupVmodelShow"></smallPopupVmodel>
+    <!--4-->
+    <smallPopupVmodel2
+      :checked="smallPopupVmodel2Show"
+      @change="val => { smallPopupVmodel2Show = val }">
+    </smallPopupVmodel2>
+    <!--可以把change换成input-->
+    <!--3,4等价-->
+
+    <div class="test-popup">
+      <p><input type="button" value="smallPopupOriginal-show" @click="smallPopupOriginalShowClick"></p>
+      <p><input type="button" value="smallPopupSync-show" @click="smallPopupSyncShowClick"></p>
+      <p><input type="button" value="smallPopupVmodel-show" @click="smallPopupVmodelShowClick"></p>
+      <p><input type="button" value="smallPopupVmodel2-show" @click="smallPopupVmodel2ShowClick"></p>
+    </div>
+  </section>
+</mt-loadmore>

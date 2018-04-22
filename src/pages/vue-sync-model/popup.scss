@@ -1,0 +1,43 @@
+//small-popup-com
+.small-popup-com {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .popup-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .popup-wrap {
+    background-color: #fff;
+    position: relative;
+    .popup-hd {
+      overflow: hidden;
+      border-bottom: 1px solid #F0F0EF;
+      padding: 12px;
+      font-weight: normal;
+      .close {
+        float: right;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+        font-size: 16px;
+        &:hover {
+          color: #ff5500;
+        }
+      }
+    }
+    .popup-bd {
+      padding: 12px;
+    }
+  }
+}

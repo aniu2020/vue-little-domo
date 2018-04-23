@@ -21,7 +21,6 @@
     },
     props: ["popupShow"],
     mounted() {
-      this.popupShow=false
     },
     methods: {},
     watch: {
@@ -182,7 +181,7 @@
       return {
         footerSet: {//网站脚部信息
           footerCur: 'vue-sync-model',
-          isHideFooter: false
+          isHideFooter: true
         },
         headerSet: {//网站头部信息
           pageTitle: 'vue-sync-model',

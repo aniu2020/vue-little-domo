@@ -9,7 +9,7 @@
       return {
         footerSet: {//网站脚部信息
           footerCur: 'html-to-img',
-          isHideFooter: false
+          isHideFooter: true
         },
         headerSet: {//网站头部信息
           pageTitle: 'html-to-img',

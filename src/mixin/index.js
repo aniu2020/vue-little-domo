@@ -63,7 +63,7 @@ export default {
     weixinTitle(title) {
       var $body = document.body;
       document.title = title;
-      var $iframe = _createDom('<iframe class="for-wxtitle-change"></iframe>');
+      var $iframe = _createDom('<iframe class="for-wxtitle-change" style="display: none"></iframe>');
       $iframe.addEventListener('load', _load);
       $body.appendChild($iframe);
 

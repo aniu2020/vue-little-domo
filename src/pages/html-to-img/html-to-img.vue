@@ -1,7 +1,7 @@
 <script>
   import mixin from '@/mixin';
   import html2canvas from 'html2canvas';
-  import VueQriously from 'vue-qriously'
+  import VueQriously from 'vue-qriously';
   export default {
     name: 'html-to-img',
     template: require("./html-to-img.tpl.html"),

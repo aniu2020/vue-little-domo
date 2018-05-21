@@ -4,7 +4,7 @@
 </template>
 <script>
 	export default {
-		name: 'goTop',
+		name: 'go-top',
 		data() {
 			return {
         scrollDistance:0,//滚动距离
@@ -48,4 +48,4 @@
 	}
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss" src="./goTop.scss"></style>
+<style scoped lang="scss" src="./go-top.scss"></style>

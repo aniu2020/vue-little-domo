@@ -1,0 +1,19 @@
+//qiniu-upload
+.qiniu-upload {
+  .mo-upload {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 0;
+    input[type="file"] {
+      opacity: 0;
+    }
+  }
+  .image-clipper-show {//？？
+    visibility: visible;
+    z-index: 100;
+  }
+  .image-clipper-hide {
+    visibility: hidden;
+    z-index: -99999;
+  }
+}

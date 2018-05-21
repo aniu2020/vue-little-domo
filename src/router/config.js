@@ -57,6 +57,11 @@ let config = [
     component: resolve => require.ensure([], () => resolve(require('@/pages/vue-sync-model/vue-sync-model')), "vuesyncmodel"),
     name: "",
   },
+  {//测试七牛图片上传
+    path: "/qiniuimageupload",
+    component: resolve => require.ensure([], () => resolve(require('@/pages/qiniu-image-upload/qiniu-image-upload')), "qiniuimageupload"),
+    name: "",
+  },
 ];
 
 export  default  config

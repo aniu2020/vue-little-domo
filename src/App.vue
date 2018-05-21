@@ -13,8 +13,8 @@
 
 <script>
   import {mapGetters} from 'vuex';
-  import Loading from "./components/commonModule/loading"
-  import webFooter from "@/components/commonModule/footer"
+  import Loading from "./components/common-module/loading/loading"
+  import webFooter from "@/components/common-module/footer/footer"
 // import Api from '@/common/Api'
   export default {
     name: 'app',

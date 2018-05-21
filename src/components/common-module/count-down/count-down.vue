@@ -5,7 +5,7 @@
 </template>
 <script>
   export default {
-    name: 'countDown',
+    name: 'count-down',
     data() {
       return {
         timer: null,
@@ -64,4 +64,4 @@
   }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss" src="./countDown.scss"></style>
+<style scoped lang="scss" src="./count-down.scss"></style>

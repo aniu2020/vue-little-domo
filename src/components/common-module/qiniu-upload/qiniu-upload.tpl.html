@@ -1,0 +1,14 @@
+<section class="qiniu-upload">
+  <label class="mo-upload">
+    <input type="file" ref="mouploadinput" :accept="accepts" @change="uploadChange">
+    <slot></slot>
+  </label>
+  <div class="clipper-warp" :class="imageClipperShow?'image-clipper-show':'image-clipper-hide'">
+    <image-clipper :img="uploadImg"
+                   @ok="ok"
+                   @cancel="cancel"
+                   :clipper-img-width="400"
+                   :clipper-img-height="400">
+    </image-clipper>
+  </div>
+</section>

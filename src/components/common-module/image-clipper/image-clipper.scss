@@ -1,0 +1,72 @@
+//image-clipper
+.image-clipper {
+
+}
+
+.position {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.clipper-container {
+  @extend .position;
+  line-height: 0;
+  background-color: #000;
+  .clipper-part {
+    @extend .position;
+    bottom: 61px;
+    z-index: 102;
+    .pCanvas-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 2px solid #fff;
+    }
+  }
+  .action-bar {
+    box-sizing: content-box;
+    @extend .position;
+    top: auto;
+    z-index: 103;
+    height: 60px;
+    line-height: 60px;
+    border-top: 1px solid rgba(256, 256, 256, 0.1);
+    button {
+      display: block;
+      padding: 0 15px;
+      line-height: 60px;
+      font-size: 16px;
+      color: #fff;
+      background: none;
+      border: none;
+      outline: 0;
+      &.btn-cancel {
+        float: left;
+      }
+      &.btn-ok {
+        float: right;
+      }
+    }
+  }
+  .mask {
+    @extend .position;
+    z-index: 101;
+    transition: opacity 500ms;
+    background-color: #000;
+    opacity: 0;
+    &.opacity {
+      opacity: 0.8;
+    }
+  }
+  .gesture-mask {
+    @extend .position;
+    bottom: 61px;
+    z-index: 103;
+  }
+}
+

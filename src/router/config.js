@@ -2,83 +2,57 @@ import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 
-let
-  Home = (resolve) => {
-    require.ensure(['@/pages/home/home'], () => {
-      resolve(require('@/pages/home/home'))
-    }, "home")
-  },
-  detail = (resolve) => {
-    require.ensure(['@/pages/detail/detail'], () => {
-      resolve(require('@/pages/detail/detail'))
-    }, "detail")
-  },
-  testFnList = (resolve) => {
-    require.ensure(['@/pages/testFnList/test-fn-list'], () => {
-      resolve(require('@/pages/testFnList/test-fn-list'))
-    }, "testFnList")
-  },
-  testTab = (resolve) => {
-    require.ensure(['@/pages/testTab/test-tab'], () => {
-      resolve(require('@/pages/testTab/test-tab'))
-    }, "testTab")
-  },
-  htmltoimg = (resolve) => {
-    require.ensure(['@/pages/html-to-img/html-to-img'], () => {
-      resolve(require('@/pages/html-to-img/html-to-img'))
-    }, "htmltoimg")
-  };
-
 let config = [
-  {
+  {//默认首页
     path: '/',
-    component: testFnList,
+    component: resolve => require.ensure([], () => resolve(require('@/pages/home/home')), 'home'),
     meta: {hideHeader: true},
+    test: 'fdf'
   },
-  {
+  {//首页
     path: '/home',
     name: 'home',
     meta: {
       test: 'test',
     },
-    component: Home
+    component: resolve => require.ensure([], () => resolve(require('@/pages/home/home')), 'home')
   },
-  {
+  {//详情页
     path: '/detail',
     name: 'detail',
     test: 'test',
-    component: detail
+    component: resolve => require.ensure([], () => resolve(require('@/pages/detail/detail')), 'detail')
   },
-  {
+  {//详情页
     path: '/detail/:id',
     name: 'detailtwo',
-    component: detail
+    component: resolve => require.ensure([], () => resolve(require('@/pages/detail/detail')), 'detail')
   },
-  {
+  {//测试方式list
     path: '/testfnlist',
     name: 'testfnlist',
     meta: {
       test: 'test',
     },
-    component: testFnList
+    component: resolve => require.ensure([], () => resolve(require('@/pages/testFnList/test-fn-list')), 'testfnlist')
   },
-  {
+  {//测试tab（选项卡）
     path: '/testtab',
     name: 'testtab',
     meta: {
       test: 'test',
     },
-    component: testTab
+    component: resolve => require.ensure([], () => resolve(require('@/pages/testTab/test-tab')), 'testtab')
   },
-  {
+  {//html转图片
     path: '/htmltoimg',
     name: 'htmltoimg',
     meta: {
       // test: 'test',
     },
-    component: htmltoimg
+    component: resolve => require.ensure([], () => resolve(require('@/pages/html-to-img/html-to-img')), 'htmltoimg')
   },
-  {
+  {//测试vue sync 和 model
     path: "/vuesyncmodel",
     component: resolve => require.ensure([], () => resolve(require('@/pages/vue-sync-model/vue-sync-model')), "vuesyncmodel"),
     name: "",

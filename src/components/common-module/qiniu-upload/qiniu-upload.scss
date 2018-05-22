@@ -10,10 +10,12 @@
   }
   .image-clipper-show {//？？
     visibility: visible;
-    z-index: 100;
+    z-index: 1000;
+    //display: block;
   }
   .image-clipper-hide {
     visibility: hidden;
     z-index: -99999;
+    //display: none;
   }
 }

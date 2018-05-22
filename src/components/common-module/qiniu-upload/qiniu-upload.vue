@@ -55,6 +55,7 @@
           } else if (window.webkitURL != undefined) { // webkit or chrome
             url = window.webkitURL.createObjectURL(file);
           }
+          console.log(url,'url')//url blob:http://192.168.22.146:6663/b35b99ea-cd52-4009-a55a-d23b0051a3cc
           return url;
         };
         var objUrl = getObjectURL(file);
@@ -82,6 +83,7 @@
       },
       /**
        * 完成剪切
+       * data:base64
        */
       ok(data){
         this.imageClipperShow = false;
@@ -98,7 +100,7 @@
           }
           return new File([u8arr], filename, {type: mime});
         }
-
+console.log(data,'data')
         var file = dataURLtoFile(data, new Date().getTime() + '_' + parseInt(Math.random() * 1000000) + '.jpg');
         this.uploadQiNiu(file);
 
@@ -137,7 +139,9 @@
           const formData = new FormData();
           formData.append('file', file)
           try {
-            let res = await this.$_api.qiniuConfig();
+//            let res = await this.$_api.qiniuConfig();
+            let res = await this.$http.get('http://192.168.68.113/login/v1/user/qiniu/config');
+            console.log(res,'res')
             const result = res.body.data;
             formData.append('token', result.uptoken);
 //            formData.append('key', result.key)

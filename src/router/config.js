@@ -58,8 +58,8 @@ let config = [
     name: "",
   },
   {//测试七牛图片上传
-    path: "/qiniuimageupload",
-    component: resolve => require.ensure([], () => resolve(require('@/pages/qiniu-image-upload/qiniu-image-upload')), "qiniuimageupload"),
+    path: "/qiniuimageuploadtest",
+    component: resolve => require.ensure([], () => resolve(require('@/pages/qiniu-image-upload-test/qiniu-image-upload-test')), "qiniuimageuploadtest"),
     name: "",
   },
 ];

@@ -24,6 +24,7 @@
 </template>
 
 <script>
+  //https://github.com/vivialex/vue-imageClipper
   export default {
     name: 'imageClipper',
     props: {

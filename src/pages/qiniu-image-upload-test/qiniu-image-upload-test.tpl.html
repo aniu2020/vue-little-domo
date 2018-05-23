@@ -1,13 +1,13 @@
 <!--<mt-loadmore :top-method="loadTop" @top-status-change="handleTopChange" ref="loadmore" :autoFill="false">-->
-  <section class="m-cont qiniu-image-upload-test">
-      <div class="upload-hd">
-        <div class="upload-hd-img">
-          <img :src="headPicUrl" alt="">
-          <!--</figure>-->
-          <qiniu-upload @complete="uploadComplete" @progress="uploadProgress">
-            <!--<a>选择图片文件<i class="progress" :style="{width:progress + '%'}"></i></a>-->
-          </qiniu-upload>
-        </div>
-      </div>
-  </section>
+<section class="m-cont qiniu-image-upload-test">
+  <div class="upload-hd">
+    <div class="upload-hd-img">
+      <img :src="headPicUrl" alt="">
+      <!--</figure>-->
+      <qiniu-upload @complete="uploadComplete">
+      </qiniu-upload>
+    </div>
+    <p class="tip">点击图片更换头像</p>
+  </div>
+</section>
 <!--</mt-loadmore>-->

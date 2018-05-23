@@ -36,9 +36,6 @@
         //这里可以通过回调的flag对不同上传域做处理
         this.progress = progress < 100 ? progress : 0;
       },
-      /**
-       * 上传完成
-       * */
       async uploadComplete(status, result, flag) {
         if (status == 200) { //
 //          let res=await this.updateUserInformationFn({headPath: result.key})//把路径上传给后端 后端保存到数据库
@@ -56,7 +53,7 @@
       async updateUserInformationFn(sendData){
         try {
           let res = await this.$_api.updateUserInformation(sendData);
-          this.headPicUrl = res.body.data.headPath;
+          this.headPicUrl=res.body.data.headPath;
         } catch (err) {
           console.log('err:', err);
           this.$_showMsg(err.body && err.body.msg || '网络错误');

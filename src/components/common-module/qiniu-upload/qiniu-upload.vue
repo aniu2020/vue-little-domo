@@ -56,7 +56,7 @@
           fr.readAsDataURL(file);//将文件读取为 DataURL（base64）
           fr.onload = function (file) {
             typeof callBack == 'function' && callBack(file.target.result)
-            console.log(file.target, file.target.result, 'file.target.result')
+//            console.log(file.target, file.target.result, 'file.target.result')
           }
         }
         FileReaderToDataURL(file, (result) => {

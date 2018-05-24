@@ -8,11 +8,11 @@
       return {
         footerSet: {//网站脚部信息
           footerCur: 'qiniu-image-upload',
-          isHideFooter: false
+          isHideFooter: true
         },
         headerSet: {//网站头部信息
           pageTitle: 'qiniu-image-upload',
-          isHideHeader: false
+          isHideHeader: true
         },
         thumbnail: null,
         headPicUrl: 'http://ojljnwfwk.bkt.clouddn.com/Fu5ZYioJHe9eM6-SgshNRj5qfmY0',

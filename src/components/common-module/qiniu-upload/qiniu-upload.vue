@@ -56,7 +56,9 @@
           fr.readAsDataURL(file);//将文件读取为 DataURL（base64）
           fr.onload = function (file) {
             typeof callBack == 'function' && callBack(file.target.result)
-//            console.log(file.target, file.target.result, 'file.target.result')
+            //file.target.result：data:image/gif;base64,R0lGODlh...NWWhtCwgAOw==
+            //dataURL ==> data:image/jpeg;base64,/9j/4A...RQf/Z
+            console.log(file.target, file.target.result, 'file.target.result')
           }
         }
         FileReaderToDataURL(file, (result) => {
@@ -101,6 +103,7 @@
        * dataURl(base64)
        */
       ok(dataURl){
+          // imgData.append('file', base64.substr(23));
         //dataURL ==> data:image/jpeg;base64,/9j/4A...RQf/Z
         this.imageClipperShow = false;
         /**

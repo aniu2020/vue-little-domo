@@ -1,0 +1,16 @@
+<mt-loadmore :top-method="loadTop" @top-status-change="handleTopChange" ref="loadmore" :autoFill="false">
+  <section class="m-cont file-switch">
+    <div class="file-switch-img">
+      <img :src="fileimg" alt="">
+    </div>
+    <div class="input-file-wrap">
+      <p class="input-item"><span class="txt">img-file-to-dataURL：</span><input type="file" @change="imgFileToDataURL"></p>
+      <p class="input-item"><span class="txt">img-file-blob-to-dataURL：</span><input type="file" @change="imgFileBlobToDataURL"></p>
+    </div>
+    <div>
+      <p>test-canvas:</p>
+      <canvas id="test-canvas" ></canvas>
+    </div>
+
+  </section>
+</mt-loadmore>

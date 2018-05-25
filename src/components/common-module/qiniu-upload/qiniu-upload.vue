@@ -71,11 +71,11 @@
         return;
 //        方法二：
         /**
-         * 获取文件本地地址
+         * 获取文件本地的blob地址
          * @param file
          * @returns {*}
          */
-        let getFlieBlogURL = function (file) {
+        let getFileBlogURL = function (file) {
           let url = null;
           if (window.createObjectURL != undefined) { // basic createObjectURL获取图片的一个本地地址 方便本地预览 类似这样的：blob:http://192.168.22.146:6663/b35b99ea-cd52-4009-a55a-d23b0051a3cc
             //blob /blɒb/ (布罗布) 一滴；一抹 得零分；弄错
@@ -89,7 +89,7 @@
           }
           return url;//url：blob:http://192.168.22.146:6663/b35b99ea-cd52-4009-a55a-d23b0051a3cc
         };
-        let objUrl = getFlieBlogURL(file);
+        let objUrl = getFileBlogURL(file);
         if (objUrl) {
           this.imageClipperShow = true;
           this.uploadImg = objUrl;

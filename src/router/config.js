@@ -34,7 +34,7 @@ let config = [
     meta: {
       test: 'test',
     },
-    component: resolve => require.ensure([], () => resolve(require('@/pages/testFnList/test-fn-list')), 'testfnlist')
+    component: resolve => require.ensure([], () => resolve(require('@/pages/test-fn-list/test-fn-list')), 'testfnlist')
   },
   {//测试tab（选项卡）
     path: '/testtab',
@@ -60,6 +60,11 @@ let config = [
   {//测试七牛图片上传
     path: "/qiniuimageuploadtest",
     component: resolve => require.ensure([], () => resolve(require('@/pages/qiniu-image-upload-test/qiniu-image-upload-test')), "qiniuimageuploadtest"),
+    name: "",
+  },
+  {//文件与读取数据之间的转换
+    path: "/fileswitch",
+    component: resolve => require.ensure([], () => resolve(require('@/pages/file-switch/file-switch')), "fileswitch"),
     name: "",
   },
 ];

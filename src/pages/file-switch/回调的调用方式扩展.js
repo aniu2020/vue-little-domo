@@ -1,7 +1,6 @@
 let inputChange = (e) => {
   let file = e.target.files[0];
-  console.log('file:', file)
-  //回调方式
+  //老的处理方式：回调方式
   let fileToDataURL = (file, callBack) => {
     let fR = new FileReader();
     fR.readAsDataURL(file);//将文件读取为 DataURL（base64）
@@ -15,7 +14,7 @@ let inputChange = (e) => {
     console.log('fileToDataURL-res:', res)
   });
 
-  //es6方式
+  //新的es6处理方式（运用Promise函数）
   let fileToDataURL2 = (file) => {
     return new Promise((resolve, reject) => {
       let fR = new FileReader();
@@ -29,14 +28,14 @@ let inputChange = (e) => {
     })
   };
 
-  //then方式调用
+  //es6的then方式调用
   fileToDataURL2(file).then((res) => {
     console.log('then-catch-fileToDataURL2-res:', res)//fileToDataURL2:data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAZABk...8P16H//Z
   }).catch((err) => {
     console.log('then-catch-fileToDataURL2-err:', err)
   })
 
-  // async await 方式调用
+  //es7的async await 方式调用
   (async () => {
     try {
       let res = await fileToDataURL2(file)
@@ -46,5 +45,9 @@ let inputChange = (e) => {
     }
   })();
 
+  //调用 file=>dataURL
+  fileToDataURL(file, (res) => {
+    console.log('fileToDataURL-res:', res)
+  });
 
 }

@@ -53,6 +53,42 @@
       let file = dataURLtoFile('data:text/plain;base64,YWFhYWFhYQ==', 'test.txt');
 //      console.log(file)
       //File(7) {name: "test.txt", lastModified: 1527242473811, lastModifiedDate: Fri May 25 2018 18:01:13 GMT+0800 (中国标准时间), webkitRelativePath: "", size: 7, …}
+
+      // ===07.image转canvas===
+      /**
+       * image转canvas
+       * @param src 图片地址
+       * @param callBack
+       */
+      let imageToCanvas = (src, callBack) => {
+        let canvas = document.createElement('canvas'),
+          ctx = canvas.getContext('2d'),
+          img = new Image();
+        document.body.appendChild(canvas);
+        img.src = src;
+        img.onload = function () {
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+          typeof callBack == 'function' && callBack(canvas);
+        };
+      }
+      imageToCanvas('http://aniublog.com/wp-content/uploads/2018/03/BT7A@WQ20078OMDKO1HAP.jpg')
+
+      // ===08.image转Blob===
+//      let imageToBlob = (src, callBack) => {
+//        imageToCanvas(src, (canvas) => {
+//          typeof callBack == 'function' && callBack(dataURLToBlob(canvasToDataURL(canvas)));
+//        });
+//      }
+
+      // ===09.dataURL转image，这个不需要转，直接给了src就能用===
+      let dataURLToImage=(dataurl)=>{
+        var img = new Image();
+        img.src = dataurl;
+        return img;
+      }
+
     },
 
 
@@ -72,6 +108,8 @@
         //e.currentTarget 指向添加监听事件的对象。 被点击的父元素 ul(冒泡)，currentTarget始终是监听事件者
 //        console.log('e.target:', e.target)
 //        console.log('e.currentTarget:', e.currentTarget)
+        //target ['tɑːgɪt] 目标，指标；（攻击的）对象；靶子
+        //current  ['kʌr(ə)nt] （康特） 现在的；流通的，通用的；最近的；草写的
         console.log('file:', file)
         //===01.File对象转换为dataURL===
         /**
@@ -88,39 +126,76 @@
             }
           };
 
-        //调用 file=>dataURL
-        fileToDataURL(file, (res) => {
-          this.fileimg = res;
-          console.log('fileToDataURL-res:', res)
-
-          //===04.将File,Blob的图片文件数据绘制到canvas（将file和blob的转化成dataURL，构造Image对象，src为dataURL，图片onload之后绘制到canvas）===
-          //上传图片并压缩图片 1.上传图片；2.图片转dataURL；3.把dataURL赋值给一个新建图片，丢进canvas；4.由canvas来对图片压缩 canvas.toDataURL("image/jpeg", 1); //第二个参数是质量
+        //===04.将File,Blob的图片文件数据绘制到canvas（将file和blob的转化成dataURL，构造Image对象，src为dataURL，图片onload之后绘制到canvas）===
+        let fileToCanvas = (dataURL, callBack) => {
+          //上传图片并压缩图片 1.上传图片；2.图片转dataURL；3.把dataURL赋值给一个新建图片，丢进canvas；4.由canvas来对图片压缩:a设置图片的宽高(canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height))；b设置图标的质量(canvas.toDataURL("image/jpeg", 1)),第二个参数是质量,
           //File继承于Blob，扩展了一些属性（文件名、修改时间、路径等），基本各种转化都基于dataURL,dataURL又可以通过h5的FileReader来得到
-          let canvas = document.getElementById('test-canvas')
+//          let canvas = document.getElementById('test-canvas')
+          let canvas = document.createElement('canvas');
+          document.body.appendChild(canvas);
+          canvas.id = 'canvas-id';
           var img = new Image();
           //这里是错误的canvas宽高赋值 不能用style！直接用上面的等于
           // canvas.style.width=100+'px';
           // canvas.style.height=100+'px';
           img.onload = function () {
-            console.log('img.width:',img.width)
+            console.log('img.width:', img.width, 666)
             canvas.width = img.width;
             canvas.height = img.height;
             console.log('canvas', canvas)
             //context.drawImage(img,x,y,width,height);
             canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
-            //drawImage() 方法在画布上绘制图像、画布或视频。 也能够绘制图像的某些部分，以及/或者增加或减少图像的尺寸。  context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
+            typeof callBack == 'function' && callBack(canvas);
+            //drawImage() 方法在画布上绘制图像、画布或视频。 也能够绘制图像的某些部分，以及/或者增加或减少图像的尺寸。
+            //5参数的时候：context.drawImage(img,x,y,width,height);
+            //9参数的时候：context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
+            //注意：sx，sy等在插在x，y参数的前面的
             //mg	规定要使用的图像、画布或视频。
             //sx	可选。开始剪切的 x 坐标位置。
             //sy	可选。开始剪切的 y 坐标位置。
             //swidth	可选。被剪切图像的宽度。
             //sheight	可选。被剪切图像的高度。
+            //x 在画布上放置图像的 x 坐标位置。
+            //y 在画布上放置图像的 y 坐标位置。
+            //width	可选。要使用的图像的宽度。（伸展或缩小图像）
+            //height	可选。要使用的图像的高度。（伸展或缩小图像）
+
           };
-          img.src = res;//res:dataURL
+          img.src = dataURL;//res:dataURL
+        }
 
+        //===05.canvas转换为dataURL (从canvas获取dataURL)
+        let canvasToDataURL = (canvas, imgType = 'image/jpeg', imgQuality = 1) => {
+          let dataurl = canvas.toDataURL(imgType, imgQuality);
+          return dataurl
+        }
 
-          //===05.canvas转换为dataURL (从canvas获取dataURL)
-          var dataurl = canvas.toDataURL('image/png');
-          var dataurl2 = canvas.toDataURL('image/jpeg', 0.8);
+        //调用 file=>dataURL
+        fileToDataURL(file, (res) => {
+          this.fileimg = res;
+          console.log('fileToDataURL-res:', res);//data:image/jpeg;base64,/9j/4A...RQf/Z
+          //将File,Blob的图片文件数据绘制到canvas
+          fileToCanvas(res, (canvas) => {
+            console.log('canvas:12', canvas);//<canvas id="canvas-id" width="378" height="284"></canvas>
+          });
+          //canvas转换为dataURL
+          let canvas = document.getElementById('canvas-id');
+          canvasToDataURL(canvas);
+
+          //DataURL转canvas===
+//          function dataURLToCanvas(dataurl, cb){
+//            var canvas = document.createElement('CANVAS');
+//            var ctx = canvas.getContext('2d');
+//            var img = new Image();
+//            img.onload = function(){
+//              canvas.width = img.width;
+//              canvas.height = img.height;
+//              ctx.drawImage(img, 0, 0);
+//              cb(canvas);
+//            };
+//            img.src = dataurl;
+//          }
+
 
           //===06.Canvas转换为Blob对象并使用Ajax发送
           //转换为Blob对象后，可以使用Ajax上传图像文件。先从canvas获取dataurl, 再将dataurl转换为Blob对象
@@ -151,7 +226,7 @@
         let fileToDataURL = (file, callBack) => {
             let fR = new FileReader();
             fR.readAsDataURL(file);//将文件读取为 DataURL（base64）
-            fR.onload = (e) => {//e??
+            fR.onload = (e) => {
               typeof callBack == 'function' && callBack(e.target.result);
             }
           };
@@ -194,7 +269,7 @@
           xhr.send();
         };
         getImageBlob(getFileBlogURL(file), (res) => {
-          console.log('getImageBlob:', res)
+          console.log('getImageBlob:', res);//Blob(7) {size: 7, type: "text/plain"}size: 7type: "text/plain"__proto__: Blob
           //调用 图片Blob=>dataURL
           fileToDataURL(res, (res) => {
             this.fileimg = res;

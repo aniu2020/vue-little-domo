@@ -45,7 +45,7 @@ router.afterEach(route => {
   };
 
   //星美统计
-  window._XmAnalysisData = window._XmAnalysisData || [];
+/*   window._XmAnalysisData = window._XmAnalysisData || [];
   (function () {
     var XMAnalysis = document.getElementById('XM-analysis');
     removeEle(XMAnalysis);
@@ -66,7 +66,7 @@ router.afterEach(route => {
     var htmlHead = document.getElementsByTagName('head')[0];
     htmlHead.appendChild(XmAnalysis);
 
-  })();
+  })(); */
 
 });
 

@@ -67,6 +67,11 @@ let config = [
     component: resolve => require.ensure([], () => resolve(require('@/pages/file-switch/file-switch')), "fileswitch"),
     name: "",
   },
+  {//文件与读取数据之间的转换
+    path: "/tscanvassign",
+    component: resolve => require.ensure([], () => resolve(require('@/pages/ts-canvas-sign/ts-canvas-sign')), "tscanvassign"),
+    name: "",
+  },
 ];
 
 export  default  config

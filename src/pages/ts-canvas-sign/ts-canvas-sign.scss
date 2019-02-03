@@ -1,42 +1,39 @@
 //ts-canvas-sign
 .ts-canvas-sign {
-  height: 600px;
-//user-signature
-.user-signature {
-    height: 100%;
-    background-color: #fff;
-    .signature-bd {
-      height: 100%;
-      position: relative;
-      .signature-tip {
-        position: absolute;
-        top: 0.2rem;
-        left: 50%;
-        color: #999999;
-        font-size: 0.12rem;
-        margin-left: -25%;
-      }
-      .user-signature-canvas-wrap {
-        height: 100%;
-        padding-top: 12px;
-        #user-signature-canvas {
-          height: 86%;
-          width: 98%;
-          //position: relative;
-          border-radius: 10px;
-          background-color: #fff;
-          margin: 0 auto;
-        }
-      }
-    }
-    .user-op {
-      padding: 12px;
-      width: 100%;
-      position: fixed;
-      bottom: 0;
-      left: 0;
+  margin-top: 10px;
+
+  #sign-canvas {
+    height: 300px;
+    width: 98%;
+    //position: relative;
+    border-radius: 10px;
+    margin: 0 auto;
+
+    canvas {
       background-color: #fff;
+      border: 1px dashed #ccc;
+      border-radius: 10px;
     }
-  }  
+  }
+
+  .user-op {
+    padding-top: 12px;
+    text-align: center;
+    overflow: hidden;
+
+    .btn {
+      display: inline-block;
+      margin: 0 12px;
+      border: 1px #DEDEDE solid;
+      color: #ffffff;
+      background-color: #FF9800;
+      width: 120px;
+      padding: 6px 12px;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+    }
+  }
 }
-    

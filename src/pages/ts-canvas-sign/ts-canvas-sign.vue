@@ -7,11 +7,11 @@ export default {
     return {
       footerSet: {//网站脚部信息
         footerCur: 'ts-canvas-sign',
-        isHideFooter: false
+        isHideFooter: true
       },
       headerSet: {//网站头部信息
         pageTitle: 'ts-canvas-sign',
-        isHideHeader: false
+        isHideHeader: true
       },
     }
   },
@@ -19,22 +19,23 @@ export default {
   mixins: [mixin],
   components: {},
   mounted () {
-    let vm = new this.LineCanvas({
-      el: document.getElementById("user-signature-canvas"), // 绘制canvas的父级div
+    // let vm = 
+    new this.LineCanvas({
+      el: document.getElementById("sign-canvas"), // 绘制canvas的父级div
       clearEl: document.getElementById("clearCanvas"), // 清除按钮
       saveEl: document.getElementById("saveCanvas"), // 保存按钮
       linewidth: 5, // 线条粗细，选填
       color: "black", // 线条颜色，选填
       background: "#ffffff" // 线条背景，选填
-    }, () => {
-      this.touchEndNum++
-    }, async (base64) => {
-      console.log('base64:', base64)
+    }, () => { // 用户落笔回调
+      console.log('落笔了')
+    }, (base64) => { // 保存按钮回调
+      console.log('保存回调（canvas-to-base64）：', base64)
     })
-    window.Vue.use({
-      vm
-    })
-    // 绑定事件
+    /*     window.Vue.use({
+          vm
+        }) */
+    // 阻止微信浏览器下拉滑动效果（ios11.3 橡皮筋效果）
     document.addEventListener('touchmove', this.stopTouchmoveHandler, { passive: false })
     // 阻止微信浏览器下拉滑动效果（ios11.3 橡皮筋效果） https://segmentfault.com/a/1190000014134234
     // JS中event.preventDefault()取消默认事件能否还原？ https://segmentfault.com/q/1010000004819075
@@ -68,7 +69,6 @@ export default {
         this[i] = obj[i]
       }
       this.canvas = document.createElement("canvas")
-
       this.el.appendChild(this.canvas)
       this.cxt = this.canvas.getContext("2d")// getContext(): Canvas.getContext(contextID) 方法返回一个用于在画布上绘图的环境
       this.canvas.width = this.el.clientWidth
@@ -93,7 +93,7 @@ export default {
       // 绘制中
       this.canvas.addEventListener("touchmove", function (e) {
         this.cxt.lineTo(e.changedTouches[0].pageX, e.changedTouches[0].pageY)
-        this.cxt.stroke()
+        this.cxt.stroke() // stroke() 方法会实际地绘制出通过 moveTo() 和 lineTo() 方法定义的路径。默认颜色是黑色
       }.bind(this), false)
       // 结束绘制
       this.canvas.addEventListener("touchend", function () {
@@ -134,6 +134,7 @@ export default {
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss" src="./ts-canvas-sign.scss"></style>
+<style lang="scss" src="./ts-canvas-sign.scss"></style>
+
     
     

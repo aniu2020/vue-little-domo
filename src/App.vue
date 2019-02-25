@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <!--页面切换-->
-    <router-view></router-view>
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
     <transition name="fade">
       <Loading v-show="fetchLoading"></Loading>
     </transition>
-
     <!--网站脚部-->
     <webFooter></webFooter>
   </div>

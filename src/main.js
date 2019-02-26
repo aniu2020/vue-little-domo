@@ -72,9 +72,10 @@ router.afterEach(route => {
 
 if (process.env.NODE_ENV == 'test' || process.env.NODE_ENV == 'development') {
 // || process.env.NODE_ENV == 'development'
-//   require('./libs/vconsole.min.js');
+  // require('./libs/vconsole.min.js');
 }
 
+require('./libs/vconsole.min.js');
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

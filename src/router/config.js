@@ -72,6 +72,11 @@ let config = [
     component: resolve => require.ensure([], () => resolve(require('@/pages/ts-canvas-sign/ts-canvas-sign')), "tscanvassign"),
     name: "",
   },
+  {//ts高德地图
+    path: "/tsamap",
+    component: resolve => require.ensure([], () => resolve(require('@/pages/ts-amap/ts-amap')), "tsamap"),
+    name: "",
+  },
 ];
 
 export  default  config

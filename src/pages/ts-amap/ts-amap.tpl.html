@@ -1,0 +1,28 @@
+<mt-loadmore :top-method="loadTop" @top-status-change="handleTopChange" ref="loadmore" :autoFill="false">
+  <section class="m-cont ts-amap">
+    <p><input type="button" value="刷新" @click="refresh"></p>
+    <p>高德地图(浏览器)：{{callMapInfo}}</p>
+    <br>
+    <p>------------</p>
+    <p>------------</p>
+    <p>高德地图(ip)：{{callMapInfoIp}}</p>
+    <br>
+    <p>------------</p>
+    <p>------------</p>
+    <p>------------</p>
+    <p>百度地图(浏览器)：{{callMapInfoBaidu}}</p>
+    <br>
+    <p>------------</p>
+    <p>------------</p>
+    <p>------------</p>
+    <p>百度地图(ip)：{{callMapInfoBaiduIp}}</p>
+    <br>
+    <p>------------</p>
+    <p>------------</p>
+    <p>------------</p>
+    <br>
+    <p>------------</p>
+    <p>------------</p>
+    <p>------------</p>
+  </section>
+</mt-loadmore>

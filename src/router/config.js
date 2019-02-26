@@ -71,11 +71,37 @@ let config = [
     path: "/tscanvassign",
     component: resolve => require.ensure([], () => resolve(require('@/pages/ts-canvas-sign/ts-canvas-sign')), "tscanvassign"),
     name: "",
-  },
-  {//ts高德地图
+  },  {//ts高德地图
     path: "/tsamap",
     component: resolve => require.ensure([], () => resolve(require('@/pages/ts-amap/ts-amap')), "tsamap"),
     name: "",
+  },
+  {//tskeepalive
+    path: "/tskeepalivea",
+    component: resolve => require.ensure([], () => resolve(require('@/pages/ts-keep-alive-a/ts-keep-alive-a')), "tskeepalivea"),
+    name: "",
+     meta: {
+      title: 'tskeepalivea',
+      // keepAlive: true
+    }
+  },
+  {//tskeepalive
+    path: "/tskeepaliveb",
+    component: resolve => require.ensure([], () => resolve(require('@/pages/ts-keep-alive-b/ts-keep-alive-b')), "tskeepaliveb"),
+    name: "",
+     meta: {
+      title: 'tskeepaliveb',
+      keepAlive: true
+    }
+  },
+  {//tskeepalive
+    path: "/tskeepalivec",
+    component: resolve => require.ensure([], () => resolve(require('@/pages/ts-keep-alive-c/ts-keep-alive-c')), "tskeepalivec"),
+    name: "",
+     meta: {
+      title: 'tskeepalivec',
+      // keepAlive: true
+    }
   },
 ];
 

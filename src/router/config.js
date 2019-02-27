@@ -103,6 +103,15 @@ let config = [
       // keepAlive: true
     }
   },
+  {//tskeepalive
+    path: "/tsvuescroller",
+    component: resolve => require.ensure([], () => resolve(require('@/pages/ts-vue-scroller/ts-vue-scroller')), "tsvuescroller"),
+    name: "",
+     meta: {
+      title: 'tsvuescroller',
+      // keepAlive: true
+    }
+  },
 ];
 
 export  default  config

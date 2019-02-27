@@ -1,0 +1,10 @@
+<section class="m-cont ts-vue-scroller">
+  <scroller style="top: 44px" :on-refresh="refresh" :on-infinite="infinite">
+    <div v-for="(item, index) in lists">
+      <div class="row">
+        {{ item.title }}
+      </div>
+      <br>
+    </div>
+  </scroller>
+</section>

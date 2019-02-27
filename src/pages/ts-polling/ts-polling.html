@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    window.AMap = {}
+    let pollingTimer = null // 轮询定时器
+    let pollingTimerNum = 0 // 轮询次数
+    let canKill = false // 该结束了
+    let polling = () => {
+      // 轮询3次还没有结果 关掉定时器
+      if (pollingTimerNum === 30) {
+        console.log('我结束轮询了', pollingTimerNum)
+        canKill = true
+        clearTimeout(pollingTimer)
+      }
+      // 进程轮询杀掉后的回调
+      if (canKill || window.AMap.Map) { // 如果轮询了20次或者有地图有map属性了就结束轮询
+        console.log(window.AMap.Map, '轮询结束window.AMap.Map', canKill, '轮询结束canKill', pollingTimerNum, pollingTimer)
+        clearTimeout(pollingTimer)
+        pollingTimer = null
+        return
+      }
+      console.log(666)
+      // if (!window.AMap.Map) {
+      clearTimeout(pollingTimer)
+      pollingTimer = setTimeout(() => {
+        ++pollingTimerNum
+        polling()
+        console.log('我正在轮询了：', pollingTimerNum)
+      }, 200)
+      // }
+    }
+    polling()
+
+    setTimeout(() => {
+      window.AMap.Map = {}
+    }, 500)
+
+  </script>
+</body>
+
+</html>

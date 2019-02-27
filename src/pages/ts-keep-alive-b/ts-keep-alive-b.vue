@@ -13,6 +13,7 @@ export default {
         pageTitle: 'ts-keep-alive-b',
         isHideHeader: false
       },
+      list: []
     }
   },
   props: [""],
@@ -20,9 +21,29 @@ export default {
   components: {},
   mounted () {
     console.log('ts-keep-alive-b-mounted')
+     this.getPostsFn()
   },
   methods: {
     init () {
+     
+    },
+    /**
+   * 获取文章分类下的文章
+   */
+    async getPostsFn () {
+      try {
+        let categoriesObj = {
+          page: this.currentPage,//当前第几页
+          per_page: 5,//一页多少数据
+        }
+        let res = await this.$_api.getCatePosts(categoriesObj);
+        this.loading = false;
+        //                    this.notContShow = true;
+        res.body = res.body || [];
+        this.list = [...this.list, ...res.body];
+      } catch (res) {
+        this.$_showMsg(res.body && res.body.message || '网络异常')
+      }
 
     }
   },
@@ -34,11 +55,11 @@ export default {
   },
   beforeRouteLeave (to, from, next) {
     console.log('---to---', to, '---from---', from, to.path !== '/tskeepalivec', 'ts-keep-alive-b-beforeRouteLeave')
-    if (to.path !== '/tskeepalivec') {
-      from.meta.keepAlive = false
-    } else {
-      from.meta.keepAlive = true
-    }
+    // if (to.path !== '/tskeepalivec') {
+    //   from.meta.keepAlive = false
+    // } else {
+    //   from.meta.keepAlive = true
+    // }
     //  if (from.path === '/tskeepalivec') {
     //   from.meta.keepAlive = true
     // }

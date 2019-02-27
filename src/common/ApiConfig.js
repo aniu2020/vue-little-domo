@@ -25,6 +25,14 @@ var req_config = {
   getGoodsPromotionList: {//获取商品推广列表接口
     url: "/api/mall/good/getGoodsPromotionList",
   },
-
+  getCatePosts: {//获取分类下的文章
+    url: "/wp-json/wp/v2/posts",
+    method: "GET",//请求方式
+  },
 };
+// 便于本地开发调用反向代理
+const urlPrefix = process.env.NODE_ENV === 'development' ? '/blog-api' : ''
+for (let i in req_config) {
+  req_config[i].url = `${urlPrefix}${req_config[i].url}`
+}
 export default req_config;

@@ -48,6 +48,15 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
+      '/blog-api': {
+        // target: 'http://172.30.61.26:8081', //
+        // target: 'http://tc.aniublog.com/', // 线上服务
+        target: 'http://www.aniublog.com/', // 线上服务
+        changeOrigin: true,
+        pathRewrite: {
+          '^/blog-api': ''
+        }
+      }
       // '/smiweb': {
       //   target: 'http://testmall.xingmeihui.com',
       //   ws:false,
